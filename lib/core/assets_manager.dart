@@ -6,4 +6,5 @@ abstract final class AssetsManager {
   static const String football = '${base}football_player.png';
   static const String sports = '${base}Sport.png';
   static const String profile = '${base}Profile_image.png';
+  static const String footballSport = '${base}football_sport.png';
 }

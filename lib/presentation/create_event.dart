@@ -3,6 +3,7 @@ import 'package:evently_c13_offline/core/colors_manager.dart';
 import 'package:evently_c13_offline/core/widgets/custom_elvated_button.dart';
 import 'package:evently_c13_offline/core/widgets/custom_text_form_field.dart';
 import 'package:evently_c13_offline/model/category_DM.dart';
+import 'package:evently_c13_offline/presentation/event_details.dart';
 import 'package:evently_c13_offline/presentation/main_layout/home/widget/tab_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -59,9 +60,7 @@ class _CreateEventState extends State<CreateEvent> {
                               selectedBgColor: ColorsManager.primary,
                               unSelectedBgColor: Colors.transparent,
                               categoryDM: category,
-                              isSelected:
-                                  CategoryDM.categories.indexOf(category) ==
-                                      selectedIndex),
+                              isSelected: CategoryDM.categories.indexOf(category) == selectedIndex),
                         )
                         .toList()),
               ),
@@ -72,10 +71,7 @@ class _CreateEventState extends State<CreateEvent> {
               SizedBox(
                 height: 8,
               ),
-              CustomTextFormField(
-                  hintText: "Event title",
-                  prefixIcon: Icon(Icons.edit),
-                  controller: TextEditingController()),
+              CustomTextFormField(hintText: "Event title", prefixIcon: Icon(Icons.edit), controller: TextEditingController()),
               SizedBox(
                 height: 16,
               ),
@@ -86,10 +82,7 @@ class _CreateEventState extends State<CreateEvent> {
               SizedBox(
                 height: 8,
               ),
-              CustomTextFormField(
-                  numberOfLines: 4,
-                  hintText: "Event description",
-                  controller: TextEditingController()),
+              CustomTextFormField(numberOfLines: 4, hintText: "Event description", controller: TextEditingController()),
               SizedBox(height: 16),
               Row(
                 children: [
@@ -140,16 +133,12 @@ class _CreateEventState extends State<CreateEvent> {
               ),
               Container(
                 padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(width: 2, color: ColorsManager.primary)),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), border: Border.all(width: 2, color: ColorsManager.primary)),
                 child: Row(
                   children: [
                     Container(
                         padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: ColorsManager.primary),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: ColorsManager.primary),
                         child: Icon(
                           Icons.location_searching,
                           color: ColorsManager.white,
@@ -175,7 +164,12 @@ class _CreateEventState extends State<CreateEvent> {
               ),
               CustomElevatedButton(
                   padding: EdgeInsets.symmetric(vertical: 16),
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const EventDetails()),
+                    );
+                  },
                   buttonText: 'Add Event')
             ],
           ),
