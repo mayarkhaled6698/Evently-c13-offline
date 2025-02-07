@@ -1,4 +1,5 @@
 import 'package:evently_c13_offline/core/colors_manager.dart';
+import 'package:evently_c13_offline/presentation/edit_event.dart';
 import 'package:flutter/material.dart';
 
 import '../core/assets_manager.dart';
@@ -34,7 +35,12 @@ class _EventDetailsState extends State<EventDetails> {
             ),
             Spacer(),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const EditEvent()),
+                  );
+                },
                 icon: Icon(
                   Icons.edit,
                   color: ColorsManager.primary,
