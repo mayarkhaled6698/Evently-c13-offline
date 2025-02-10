@@ -5,6 +5,8 @@ import 'package:evently_c13_offline/presentation/main_layout/home/widget/tab_wid
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../event_details.dart';
+
 class HomeTab extends StatefulWidget {
   HomeTab({super.key});
 
@@ -22,30 +24,19 @@ class _HomeTabState extends State<HomeTab> {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           width: double.infinity,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(16),
-                  bottomRight: Radius.circular(16)),
-              color: ColorsManager.primary),
+          decoration: const BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16)), color: ColorsManager.primary),
           child: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Welcome Back ✨',
-                  style: GoogleFonts.inter(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: ColorsManager.white),
+                  style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w500, color: ColorsManager.white),
                 ),
-                Text('Muhammed Saad!',
-                    style: GoogleFonts.inter(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                        color: ColorsManager.white)),
-                SizedBox(
+                Text('Muhammed Saad!', style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.w500, color: ColorsManager.white)),
+                const SizedBox(
                   height: 16,
                 ),
                 DefaultTabController(
@@ -56,7 +47,7 @@ class _HomeTabState extends State<HomeTab> {
                         setState(() {});
                       },
                       tabAlignment: TabAlignment.start,
-                      labelPadding: EdgeInsets.symmetric(horizontal: 10),
+                      labelPadding: const EdgeInsets.symmetric(horizontal: 10),
                       indicatorPadding: EdgeInsets.zero,
                       isScrollable: true,
                       indicatorColor: Colors.transparent,
@@ -69,8 +60,7 @@ class _HomeTabState extends State<HomeTab> {
                                 selectedBgColor: ColorsManager.white,
                                 unSelectedBgColor: Colors.transparent,
                                 categoryDM: category,
-                                isSelected: categories.indexOf(category) ==
-                                    selectedIndex),
+                                isSelected: categories.indexOf(category) == selectedIndex),
                           )
                           .toList()),
                 ),
@@ -80,7 +70,14 @@ class _HomeTabState extends State<HomeTab> {
         ),
         Expanded(
             child: ListView.builder(
-          itemBuilder: (context, index) => EventCard(),
+          itemBuilder: (context, index) => InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const EventDetails()),
+                );
+              },
+              child: EventCard()),
           itemCount: 10,
         ))
       ],

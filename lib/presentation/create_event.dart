@@ -3,7 +3,6 @@ import 'package:evently_c13_offline/core/colors_manager.dart';
 import 'package:evently_c13_offline/core/widgets/custom_elvated_button.dart';
 import 'package:evently_c13_offline/core/widgets/custom_text_form_field.dart';
 import 'package:evently_c13_offline/model/category_DM.dart';
-import 'package:evently_c13_offline/presentation/event_details.dart';
 import 'package:evently_c13_offline/presentation/main_layout/home/widget/tab_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +20,7 @@ class _CreateEventState extends State<CreateEvent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Event"),
+        title: const Text("Create Event"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -37,7 +36,7 @@ class _CreateEventState extends State<CreateEvent> {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Image.asset(AssetsManager.football)),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               DefaultTabController(
@@ -47,7 +46,7 @@ class _CreateEventState extends State<CreateEvent> {
                     indicatorColor: Colors.transparent,
                     dividerColor: Colors.transparent,
                     tabAlignment: TabAlignment.start,
-                    labelPadding: EdgeInsets.symmetric(horizontal: 6),
+                    labelPadding: const EdgeInsets.symmetric(horizontal: 6),
                     onTap: (index) {
                       selectedIndex = index;
                       setState(() {});
@@ -68,26 +67,26 @@ class _CreateEventState extends State<CreateEvent> {
                 "Title",
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-              CustomTextFormField(hintText: "Event title", prefixIcon: Icon(Icons.edit), controller: TextEditingController()),
-              SizedBox(
+              CustomTextFormField(hintText: "Event title", prefixIcon: const Icon(Icons.edit), controller: TextEditingController()),
+              const SizedBox(
                 height: 16,
               ),
               Text(
                 "Description",
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               CustomTextFormField(numberOfLines: 4, hintText: "Event description", controller: TextEditingController()),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 children: [
-                  Icon(Icons.date_range_outlined),
-                  SizedBox(
+                  const Icon(Icons.date_range_outlined),
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
@@ -101,13 +100,13 @@ class _CreateEventState extends State<CreateEvent> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Row(
                 children: [
-                  Icon(Icons.date_range_outlined),
-                  SizedBox(
+                  const Icon(Icons.date_range_outlined),
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
@@ -121,29 +120,29 @@ class _CreateEventState extends State<CreateEvent> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Text(
                 "Location",
                 style: Theme.of(context).textTheme.bodySmall,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), border: Border.all(width: 2, color: ColorsManager.primary)),
                 child: Row(
                   children: [
                     Container(
-                        padding: EdgeInsets.all(12),
+                        padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: ColorsManager.primary),
-                        child: Icon(
+                        child: const Icon(
                           Icons.location_searching,
                           color: ColorsManager.white,
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                     Expanded(
@@ -151,7 +150,7 @@ class _CreateEventState extends State<CreateEvent> {
                       "Choose Event Location",
                       style: Theme.of(context).textTheme.bodyLarge,
                     )),
-                    Icon(
+                    const Icon(
                       Icons.arrow_forward_ios,
                       color: ColorsManager.primary,
                       size: 24,
@@ -159,18 +158,10 @@ class _CreateEventState extends State<CreateEvent> {
                   ],
                 ), // MaterialButton(
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              CustomElevatedButton(
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  onPress: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const EventDetails()),
-                    );
-                  },
-                  buttonText: 'Add Event')
+              CustomElevatedButton(padding: const EdgeInsets.symmetric(vertical: 16), onPress: () {}, buttonText: 'Add Event')
             ],
           ),
         ),
